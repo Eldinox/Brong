@@ -80,10 +80,9 @@
     <Compile Include="Assets\Scripts\BallsScript2.cs" />
     <Compile Include="Assets\Scripts\BigPaddleItemScript.cs" />
     <Compile Include="Assets\Scripts\BlockPhys.cs" />
-    <Compile Include="Assets\Scripts\BlockPhys2.cs" />
-    <Compile Include="Assets\Scripts\BlockPhys3.cs" />
     <Compile Include="Assets\Scripts\DestroyObjectsBottomBorder.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
+    <Compile Include="Assets\Scripts\FPSCounterScript.cs" />
     <Compile Include="Assets\Scripts\ItemPositionScript.cs" />
     <Compile Include="Assets\Scripts\ItemPrefabScript.cs" />
     <Compile Include="Assets\Scripts\Level1Start.cs" />

@@ -40,9 +40,9 @@ public class EndGame : MonoBehaviour
        
         if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) && gameEnded == true)
         { 
-            BlockPhys.brickZähler = 104;
-            BlockPhys2.brickZähler = 112;
-            BlockPhys3.brickZähler = 187;
+           /* BlockPhys.brickZähler = 104;
+            BlockPhys.brickZähler = 112;
+            BlockPhys.brickZähler = 187;*/
             endgameStarted = false;
             Application.LoadLevel("MainMenu");
         }
@@ -89,7 +89,7 @@ public class EndGame : MonoBehaviour
             }
         }
 
-        if (BlockPhys.brickZähler == 0 || BlockPhys2.brickZähler == 0||BlockPhys3.brickZähler  == 0)
+        if (BlockPhys.brickZähler == 0)
         {
             startEndgame();
             endgameStarted = true;

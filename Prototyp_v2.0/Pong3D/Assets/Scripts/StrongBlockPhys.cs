@@ -79,14 +79,14 @@ public class StrongBlockPhys : MonoBehaviour {
         {
             Player1Control.player1Score += 200;
             Destroy(gameObject);
-            BlockPhys3.brickZähler--;
+            BlockPhys.brickZähler--;
         }
 
         if (other.transform.tag == "ball2")
         {
             Player2Control.player2Score += 200;
             Destroy(gameObject);
-            BlockPhys3.brickZähler--;
+            BlockPhys.brickZähler--;
         }
     }
 
@@ -107,7 +107,7 @@ public class StrongBlockPhys : MonoBehaviour {
                     itemChance(1);
                 }
 
-                if (BlockPhys3.brickZähler > 5)
+                if (BlockPhys.brickZähler > 5)
                 {
                     ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
                     ItemInstance.AddForce(0, -150, 0);
@@ -124,7 +124,7 @@ public class StrongBlockPhys : MonoBehaviour {
                     itemChance(2);
                 }
          
-                if (BlockPhys3.brickZähler > 5)
+                if (BlockPhys.brickZähler > 5)
                 {
                     ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
                     ItemInstance.AddForce(0, 150, 0);
@@ -135,14 +135,14 @@ public class StrongBlockPhys : MonoBehaviour {
             {
                 Player1Control.player1Score += 200;
                 Destroy(gameObject);
-                BlockPhys3.brickZähler--; 
+                BlockPhys.brickZähler--; 
             }
 
             if (col.transform.tag == "ball2")
             {
                 Player2Control.player2Score += 200;
                 Destroy(gameObject);
-                BlockPhys3.brickZähler--;
+                BlockPhys.brickZähler--;
             }
         }
 

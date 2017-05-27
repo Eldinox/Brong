@@ -6,7 +6,8 @@ public class BlockPhys : MonoBehaviour
 	public Rigidbody[] RbitemPrefab;
     private int chanceItem;
     private int i;
-    public static int brickZähler = 104;
+    private GameObject[] bricks;
+    public static int brickZähler;
 
     // Use this for initialization
     void Start (){}
@@ -14,7 +15,8 @@ public class BlockPhys : MonoBehaviour
     void Update(){}
     void Awake()
     {
-        brickZähler = 104;
+        brickZähler = GameObject.FindGameObjectsWithTag("brick").Length;
+        Debug.Log("Bricks = "+brickZähler);
     }
 
     #region itemChance
