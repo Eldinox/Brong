@@ -38,7 +38,7 @@ public class EndGame : MonoBehaviour
         lifeBorder1 = player1Life * 0.19999f;
         lifeBorder2 = player2Life * 0.19999f;
        
-        if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) && gameEnded == true)
+        if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.U)) && gameEnded == true)
         { 
            /* BlockPhys.brickZähler = 104;
             BlockPhys.brickZähler = 112;

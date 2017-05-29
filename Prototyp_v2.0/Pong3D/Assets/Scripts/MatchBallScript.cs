@@ -28,21 +28,21 @@ public class MatchBallScript : MonoBehaviour
         {
             transform.position = new Vector3(playerPaddle.transform.position.x, -4.4f, -0.7f);
 
-            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.W))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 GetComponent<Rigidbody>().AddForce(600, 300, 0);
                 startposition = false;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.W))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 GetComponent<Rigidbody>().AddForce(-600, 300, 0);
                 startposition = false;
             }
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.W))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 rb.AddForce(0, 300, 0);
@@ -54,21 +54,21 @@ public class MatchBallScript : MonoBehaviour
         {
             transform.position = new Vector3(playerPaddle2.transform.position.x, 4.3f, -0.7f);
             
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 GetComponent<Rigidbody>().AddForce(600, -300, 0);
                 startposition = false;
             }
 
-            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 GetComponent<Rigidbody>().AddForce(-600, -300, 0);
                 startposition = false;
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.U))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 GetComponent<Rigidbody>().AddForce(0, -300, 0);

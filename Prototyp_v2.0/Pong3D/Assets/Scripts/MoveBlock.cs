@@ -10,17 +10,24 @@ public class MoveBlock : MonoBehaviour
 
     // Use this for initialization
     void Start (){}
-	// Update is called once per frame
-	void Update () 
+    // Update is called once per frame
+
+    void Update () 
     {
         translateMB1();
         translateMB2();
         translateMB3();
         translateMB4();
 
-        if(EndGame.endgameStarted == true)
+        if(EndGame.endgameStarted == true) // wurde in BlockPys nochmal "false" zurrückgesetzt 
         {
             SwitchMoveBlocks();
+        }else
+        {
+            MoveBlock1.SetActive(true);
+            MoveBlock2.SetActive(true);
+            MoveBlock3.SetActive(true);
+            MoveBlock4.SetActive(true);
         }
     }
 

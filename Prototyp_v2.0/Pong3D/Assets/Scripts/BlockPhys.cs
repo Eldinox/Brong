@@ -16,6 +16,7 @@ public class BlockPhys : MonoBehaviour
     void Awake()
     {
         brickZähler = GameObject.FindGameObjectsWithTag("brick").Length;
+        EndGame.endgameStarted = false; 
         Debug.Log("Bricks = "+brickZähler);
     }
 
