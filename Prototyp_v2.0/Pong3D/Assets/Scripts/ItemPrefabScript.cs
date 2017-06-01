@@ -10,7 +10,7 @@ public class ItemPrefabScript : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        transform.Rotate(Vector3.up * Time.deltaTime*300, Space.World);
+       // transform.Rotate(Vector3.up * Time.deltaTime*300, Space.World);
 
         if (transform.position.y < -7f || transform.position.y > 7f)
         {
