@@ -9,7 +9,7 @@ public class Paddle2Script : MonoBehaviour
     public static float rightLimit;
     public static float leftLimit;
     public static float paddleSize = 0.75f;
-    public static int player2Score = 1000;
+    public static int player2Score = 0;
 
     void Start (){}
 	
