@@ -48,9 +48,7 @@ public class Player1Control : MonoBehaviour
             Application.Quit();
         }
         #region Shield
-        // shield activation      
-       
-
+        // shield activation     
         if (shieldstatus)
         {
             shieldTime -= Time.deltaTime;

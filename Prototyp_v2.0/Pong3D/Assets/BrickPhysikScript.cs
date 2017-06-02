@@ -19,25 +19,25 @@ public class BrickPhysikScript : MonoBehaviour
     #region itemChance
     void itemChance(int playernumber)
     {
-        chanceItem = Random.Range(0, 100);
+        chanceItem = Random.Range(1, 100);
 
-      	//Paddle Big 25%
-        if (chanceItem >= 0 && chanceItem <= 25)
+      	//Paddle Big 35%
+        if (chanceItem > 0 && chanceItem <= 35)
         {
             i = 0;
         }
         //Paddle small 20%
-        else if (chanceItem > 25 && chanceItem <= 45)
+        else if (chanceItem > 35 && chanceItem <= 55)
         {
             i = 1;
         }
         //Shield 15%
-        else if (chanceItem > 45 && chanceItem <= 60)
+        else if (chanceItem > 55 && chanceItem <= 70)
         {
-            i = 5;
+            i = 2;
         }
         // Add Ball 15%
-        else if (chanceItem > 60 && chanceItem <= 75)
+        /*else if (chanceItem > 60 && chanceItem <= 75)
         {
             if (playernumber == 1 && Player1Control.powerballstatus == false && Player1Control.powerballCollected == false && Player1Control.gluestatus == false)
             {
@@ -51,22 +51,22 @@ public class BrickPhysikScript : MonoBehaviour
             {
                 itemChance(playernumber);
             }
-        }
-        //Control Change 10%
-        else if (chanceItem > 75 && chanceItem <= 85)
+        }*/
+        //Control Change 15%
+        else if (chanceItem > 70 && chanceItem <= 85)
         {
             i = 3;
         }
-        //Glue 10%
-        else if (chanceItem > 85 && chanceItem <= 95)
+        //Glue 15%
+        else if (chanceItem > 85 && chanceItem <= 100)
         {
             i = 4;
         }
         //PowerBall 5%
-        else if(chanceItem > 95 && chanceItem <= 100 )
+        /*else if(chanceItem > 95 && chanceItem <= 100 )
         {
             i = 6;
-        }
+        }*/
    	}
     #endregion
 

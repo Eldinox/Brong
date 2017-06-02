@@ -9,8 +9,8 @@ public class EndGame : MonoBehaviour
     public float scoreTimer = 0f;
     public static int player1Life;
     public static int player2Life;
-    public BallsScript bs;
-    public BallsScript2 bs2;
+    public BallPhysikScript bs;
+    public Ball2PhysikScript bs2;
     bool LifesCount = false;
     bool IconTime = false;
     public Image Healthbar1;
@@ -18,8 +18,8 @@ public class EndGame : MonoBehaviour
     public Image BattleModeIcon;
     public GameObject Score1;
     public GameObject Score2;
-    public Rigidbody rbball;
-    public Rigidbody rbball2;
+    public Rigidbody2D rbball;
+    public Rigidbody2D rbball2;
     public GameObject MatchBall;
     public GameObject playerPaddle;
     public GameObject playerPaddle2;
@@ -40,9 +40,9 @@ public class EndGame : MonoBehaviour
        
         if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.U)) && gameEnded == true)
         { 
-           /* BlockPhys.brickZähler = 104;
-            BlockPhys.brickZähler = 112;
-            BlockPhys.brickZähler = 187;*/
+           /* BrickPhysikScript.brickZähler = 104;
+            BrickPhysikScript.brickZähler = 112;
+            BrickPhysikScript.brickZähler = 187;*/
             endgameStarted = false;
             Application.LoadLevel("MainMenu");
         }
@@ -89,7 +89,7 @@ public class EndGame : MonoBehaviour
             }
         }
 
-        if (BlockPhys.brickZähler == 0)
+        if (BrickPhysikScript.brickZähler == 0)
         {
             startEndgame();
             endgameStarted = true;
@@ -129,9 +129,9 @@ public class EndGame : MonoBehaviour
             {
                 scoreTimer += Time.deltaTime;
 
-                if (Player1Control.player1Score > 0)
+                if (Paddle1Script.player1Score > 0)
                 {
-                    Player1Control.player1Score -= 50;
+                    Paddle1Script.player1Score -= 50;
                 }
 
                 if (Healthbar1.fillAmount < lifeBorder1)
@@ -139,9 +139,9 @@ public class EndGame : MonoBehaviour
                     Healthbar1.fillAmount += 0.005f;
                 }
 
-                if (Player2Control.player2Score > 0)
+                if (Paddle2Script.player2Score > 0)
                 {
-                    Player2Control.player2Score -= 50;
+                    Paddle2Script.player2Score -= 50;
                 }
 
                 if (Healthbar2.fillAmount < lifeBorder2)
@@ -163,29 +163,29 @@ public class EndGame : MonoBehaviour
 
     void countLifes()
     {
-        if (Player1Control.player1Score >= 6000)
+        if (Paddle1Script.player1Score >= 6000)
         {
-            Player1Control.player1Score = 5000;
+            Paddle1Script.player1Score = 5000;
         }
 
-        if (Player2Control.player2Score >= 6000)
+        if (Paddle2Script.player2Score >= 6000)
         {
-            Player2Control.player2Score = 5000;
+            Paddle2Script.player2Score = 5000;
         }
 
-        player1Life = (Player1Control.player1Score / 1000);
-        player2Life = (Player2Control.player2Score / 1000);
+        player1Life = (Paddle1Script.player1Score / 1000);
+        player2Life = (Paddle2Script.player2Score / 1000);
         LifesCount = true;
     }
 
     void startEndgame()
     {
-        BallsScript.startposition = false;
-        BallsScript2.startposition = false;
-        rbball.velocity = new Vector3(0, 0, 0);
-        rbball2.velocity = new Vector3(0, 0, 0);
-        rbball.transform.position = new Vector3(rbball.transform.position.x, rbball.transform.position.y, 5);
-        rbball2.transform.position = new Vector3(rbball2.transform.position.x, rbball2.transform.position.y, 5);
+        BallPhysikScript.startposition = false;
+        Ball2PhysikScript.startposition = false;
+        rbball.velocity = new Vector2(0, 0);
+        rbball2.velocity = new Vector2(0, 0);
+        rbball.transform.position = new Vector2(20, rbball.transform.position.y);
+        rbball2.transform.position = new Vector2(-20, rbball2.transform.position.y);
         battlemodeTimer += Time.deltaTime;
         bs.ResetPowerups();
         bs2.ResetPowerups2();
@@ -204,8 +204,8 @@ public class EndGame : MonoBehaviour
         {
             Score1.SetActive(false);
             Score2.SetActive(false);
-            Player1Control.speed = 8f;
-            Player2Control.speed = 8f;
+            Paddle1Script.speed = 8f;
+            Paddle2Script.speed = 8f;
         }
 
         if (battlemodeTimer > 6 && battlemodeTimer < 7)

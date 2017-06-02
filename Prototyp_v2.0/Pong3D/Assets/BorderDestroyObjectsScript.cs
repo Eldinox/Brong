@@ -23,7 +23,8 @@ public class BorderDestroyObjectsScript : MonoBehaviour
         {
             if (col.gameObject.transform.position.y < 4)  
             {
-                bs.Standby();   
+                bs.Standby(); 
+                bs.ResetPowerups();  
             }
             else if (col.gameObject.transform.position.y > -4)
             {
@@ -49,6 +50,7 @@ public class BorderDestroyObjectsScript : MonoBehaviour
             else if (col.gameObject.transform.position.y > -4)
             {
                 bs2.Standby();
+                bs2.ResetPowerups2();
             }
         }
 /*

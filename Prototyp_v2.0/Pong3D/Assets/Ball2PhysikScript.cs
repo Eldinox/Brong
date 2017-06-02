@@ -12,6 +12,9 @@ public class Ball2PhysikScript : MonoBehaviour
     public GameObject playerPaddle2;
     public float gameTimer = 0;
     public Text scoreText;
+    public Image circleShield;
+    public Image circleGlue;
+    public Image circleControlChange;
 
 	void Start () 
 	{
@@ -42,50 +45,32 @@ public class Ball2PhysikScript : MonoBehaviour
             transform.position = new Vector2(playerPaddle2.transform.position.x, 4.45f);
         }
 
-        if(Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U) && startposition)// || Player1Control.glued && Player1Control.isClone == false) )
+        if(Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U) && (startposition || Paddle2Script.glued))
         {
             rb.velocity = new Vector2(0,0);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, 300));
             startposition = false;
         }   
 
-        if(Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && startposition)// || Player1Control.glued && Player1Control.isClone == false) )
+        if(Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && (startposition || Paddle2Script.glued))
         {
             rb.velocity = new Vector2(0,0);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(600, 300));
             startposition = false;
         }  
 
-        if(Input.GetKey(KeyCode.U) && (startposition) && transform.position.y == 4.45f)
+        if(Input.GetKey(KeyCode.U) && (startposition || Paddle2Script.glued))
         {
             rb.velocity = new Vector2(0,0);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300));
             startposition = false; 
-        }/*
-        else if(Input.GetKey(KeyCode.W) && (Player1Control.glued && Player1Control.isClone == false))
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-            GetComponent<Rigidbody>().AddForce(0, 300, 0);
-            startposition = false;
-            Player1Control.glued = false;
+            Paddle2Script.glued = false;
         }
-        else if (Input.GetKey(KeyCode.W) && (Player1Control.glued && Player1Control.isClone))
-        {
-            Player1Control.ItemInstance.velocity = new Vector3(0, 0, 0);
-            Player1Control.ItemInstance.AddForce(0, 300, 0);
-            startposition = false;
-            Player1Control.glued = false;
-        }
-*/
+
         if (startposition == false)
         {
             rb.velocity = ballSpeed * (rb.velocity.normalized);
         }
-/*
-        if ((gameObject.name.Contains("(Clone)")))
-        {
-            rb.velocity = ballSpeed * (rb.velocity.normalized);
-        }*/
 	}
 
 	public void Serve()
@@ -97,6 +82,25 @@ public class Ball2PhysikScript : MonoBehaviour
     {
         transform.position = new Vector2(-20, 0);
         rb.velocity = new Vector2(0,300);
+    }
+
+    public void ResetPowerups2()
+    {
+        if (playerPaddle.transform.localScale.x >= 1.5f )
+        {
+            playerPaddle.transform.localScale = new Vector3(1.5f, 0.2f, 0.6f);
+        }
+
+        if (playerPaddle.transform.localScale.x <= 1.5f && EndGame.endgameStarted == true)
+        {
+            playerPaddle.transform.localScale = new Vector3(1.5f, 0.2f, 0.6f);
+        }
+        Paddle2Script.shieldstatus = false;
+        Paddle2Script.gluestatus = false;
+        Paddle2Script.glued = false;
+        circleControlChange.fillAmount = 0;
+        circleGlue.fillAmount = 0;
+        circleShield.fillAmount = 0;
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
