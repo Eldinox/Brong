@@ -35,12 +35,14 @@ public class Paddle1Script : MonoBehaviour
         //Big Paddle
         if (collision.transform.tag == "bigPaddle")
         {
-            Debug.Log("BigPaddle");
-            /*if (this.gameObject.transform.localScale.x <= 3)
+            if (this.gameObject.transform.localScale.x <= 0.34f)
             {
-                GetComponent<AudioSource>().Play();
-                this.gameObject.transform.localScale += new Vector3(1, 0, 0);
-            }*/
+                //GetComponent<AudioSource>().Play();
+                
+                //paddlesize += 0.1f;
+                Debug.Log("BigPaddle");
+                this.gameObject.transform.localScale += new Vector3(0.1f, 0, 0);
+            }
         }
         #endregion
     }

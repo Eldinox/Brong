@@ -28,4 +28,22 @@ public class Paddle2Script : MonoBehaviour
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
 	}
+
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        #region ITEMS
+        //Big Paddle
+        if (collision.transform.tag == "bigPaddle")
+        {
+            if (this.gameObject.transform.localScale.x <= 0.34f)
+            {
+                //GetComponent<AudioSource>().Play();
+                
+                //paddlesize += 0.1f;
+                Debug.Log("BigPaddle");
+                this.gameObject.transform.localScale += new Vector3(0.1f, 0, 0);
+            }
+        }
+        #endregion
+    }
 }
