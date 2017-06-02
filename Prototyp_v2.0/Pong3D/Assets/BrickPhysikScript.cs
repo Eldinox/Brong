@@ -3,10 +3,10 @@ using System.Collections;
 
 public class BrickPhysikScript : MonoBehaviour 
 {
-	/*public Rigidbody[] RbitemPrefab;
+	public Rigidbody2D[] RbitemPrefab;
     private int chanceItem;
     private int i;
-    private GameObject[] bricks;*/
+    //private GameObject[] bricks;
     public static int brickZähler;
 
     void Awake()
@@ -15,7 +15,7 @@ public class BrickPhysikScript : MonoBehaviour
         EndGame.endgameStarted = false; 
         Debug.Log("Bricks = "+brickZähler);
     }
-/*
+
     #region itemChance
     void itemChance(int playernumber)
     {
@@ -86,14 +86,14 @@ public class BrickPhysikScript : MonoBehaviour
             brickZähler--;
 		}
 	}
-*/
+
     void OnCollisionEnter2D(Collision2D col)
     {
-		/*int random = Random.Range(0, 5);
+		int random = Random.Range(0, 5);
         
       	if (col.transform.tag == "ball" && random == 1)
         {
-            Rigidbody ItemInstance;
+            Rigidbody2D ItemInstance;
             itemChance(1);
          
             if (DestroyObjectsBottomBorder.ballCount1 > 1 &&  (i == 4 || i == 6))
@@ -103,14 +103,14 @@ public class BrickPhysikScript : MonoBehaviour
 
             if (brickZähler > 5)
             {
-                ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
-                ItemInstance.AddForce(0, -150, 0);
+                ItemInstance = Instantiate(RbitemPrefab[i], new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as Rigidbody2D;
+                ItemInstance.AddForce(new Vector2(0, -150));
             }
         }
 
         if (col.transform.tag == "ball2" && random == 1)
         {
-            Rigidbody ItemInstance;
+            Rigidbody2D ItemInstance;
             itemChance(2);
 
             if (DestroyObjectsBottomBorder.ballCount2 > 1 && (i == 4 || i == 6))
@@ -120,10 +120,10 @@ public class BrickPhysikScript : MonoBehaviour
 
             if (brickZähler > 5)
             {
-                ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
-                ItemInstance.AddForce(0, 150, 0);
+                ItemInstance = Instantiate(RbitemPrefab[i], new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as Rigidbody2D;
+                ItemInstance.AddForce(new Vector2(0, 150));
             }     
-        }*/
+        }
 
 		if (col.transform.tag == "ball")
         {
