@@ -7,27 +7,33 @@ public class Paddle1Script : MonoBehaviour
 {
                                                 //Objectpooling für performance!
 	public GameObject bottomBorder;
+    public GameObject CCCloak;
+    public GameObject GGCloak;
+    public GameObject shield;
+
     public Rigidbody2D rbball;
+    public static Rigidbody2D ItemInstance;
+
+    public Image circleControlChange;
+    public Image circleShield;
+    public Image circleGlue;
+
+
 	public static float speed = 6f;
     public static float rightLimit;
     public static float leftLimit;
     public static float paddleSize = 0.75f;
     public static int player1Score = 0;
     public static bool controlChange = false;
-    public GameObject CCCloak;
-    public GameObject GGCloak;
-    public GameObject shield;
     public float controlChangeTime = 5f;
-    public Image circleControlChange;
     float speedItemTimerControlChange = 5f;
+    public static bool mehrbällestatus = false;
     public static bool shieldstatus = false;
     public static bool gluestatus = false;
     public static bool glued = false;
     public float shieldTime = 8f;
     public float glueTime = 12f;
     float contactPointGlue;
-    public Image circleShield;
-    public Image circleGlue;
     float speedItemTimerShield = 8f;
     float speedItemTimerGlue = 12f;
 
@@ -187,6 +193,16 @@ public class Paddle1Script : MonoBehaviour
             shieldTime = 8f;
             shieldstatus = true;
             circleShield.fillAmount = 0;
+        }
+
+        //Mehr Bälle
+        if (collision.transform.tag == "mehrbaelle")
+        {
+            // GetComponent<AudioSource>().Play();
+            mehrbällestatus = true;
+            DestroyObjectsBottomBorder.ballCount1++;
+            ItemInstance = Instantiate(rbball, new Vector2(transform.position.x, transform.position.y + 1f), Quaternion.identity) as Rigidbody2D;
+            ItemInstance.AddForce(new Vector2(0, 150));
         }
         #endregion
     }

@@ -6,8 +6,8 @@ public class Player1Control : MonoBehaviour
 {
     public static GameObject playerPaddle;
     public GameObject bottomBorder;
-    public Rigidbody rbball;
-    public Rigidbody rbball2;
+    public Rigidbody2D rbball;
+    public Rigidbody2D rbball2;
     public GameObject ball;
     public GameObject shield;
     public GameObject CCCloak;
@@ -16,7 +16,7 @@ public class Player1Control : MonoBehaviour
     public static float rightLimit;
     public static float leftLimit;
     public static int player1Score = 000;
-    public static Rigidbody ItemInstance;
+    public static Rigidbody2D ItemInstance;
     public static bool shieldstatus = false;
     public static bool firstballisHere = false;
     public static bool isClone = false;
@@ -40,7 +40,7 @@ public class Player1Control : MonoBehaviour
     void Start(){}
     void Update()
     {
-        leftLimit = bottomBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);
+      /*  leftLimit = bottomBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);
         rightLimit = bottomBorder.GetComponent<Renderer>().bounds.max.x - (transform.localScale.x / 2);
 
         if (Input.GetKey("5"))
@@ -178,11 +178,11 @@ public class Player1Control : MonoBehaviour
         //Mehr Bälle
         if (collision.transform.tag == "mehrbaelle")
         {
-            GetComponent<AudioSource>().Play();
+           // GetComponent<AudioSource>().Play();
             mehrbällestatus = true;
             DestroyObjectsBottomBorder.ballCount1++;
-            ItemInstance = Instantiate(rbball, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity) as Rigidbody;
-            ItemInstance.AddForce(0, 150, 0);
+            ItemInstance = Instantiate(rbball, new Vector2(transform.position.x, transform.position.y + 1f), Quaternion.identity) as Rigidbody2D2D;
+            ItemInstance.AddForce(new Vector2(0, 150));
         }
 
         //Steuerung umkehren
@@ -255,5 +255,5 @@ public class Player1Control : MonoBehaviour
             glued = true;
         }
         #endregion
-    }
+    */}
 }

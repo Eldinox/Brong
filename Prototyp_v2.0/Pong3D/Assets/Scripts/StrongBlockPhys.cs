@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StrongBlockPhys : MonoBehaviour {
+public class StrongBlockPhysScript : MonoBehaviour {
 
-    public Rigidbody[] RbitemPrefab;
+    public Rigidbody2D[] RbitemPrefab;
     public int blockHealth = 3;
     private int chanceItem;
     private int i;
@@ -73,24 +73,24 @@ public class StrongBlockPhys : MonoBehaviour {
     }
     #endregion
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D (Collider2D other)
     {
         if (other.transform.tag == "ball")
         {
-            Player1Control.player1Score += 200;
+            Paddle1Script.player1Score += 200;
             Destroy(gameObject);
-            BlockPhys.brickZähler--;
+            BrickPhysikScript.brickZähler--;
         }
 
         if (other.transform.tag == "ball2")
         {
-            Player2Control.player2Score += 200;
+            Paddle2Script.player2Score += 200;
             Destroy(gameObject);
-            BlockPhys.brickZähler--;
+            BrickPhysikScript.brickZähler--;
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         blockHealth --;
         if (blockHealth == 0)
@@ -99,7 +99,7 @@ public class StrongBlockPhys : MonoBehaviour {
           
             if (col.transform.tag == "ball" && random == 1)
             {
-                Rigidbody ItemInstance;
+                Rigidbody2D ItemInstance;
                 itemChance(1);
 
                 if (DestroyObjectsBottomBorder.ballCount1 > 1 && (i == 4 || i == 6))
@@ -107,16 +107,16 @@ public class StrongBlockPhys : MonoBehaviour {
                     itemChance(1);
                 }
 
-                if (BlockPhys.brickZähler > 5)
+                if (BrickPhysikScript.brickZähler > 5)
                 {
-                    ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
-                    ItemInstance.AddForce(0, -150, 0);
+                    ItemInstance = Instantiate(RbitemPrefab[i], new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as Rigidbody2D;
+                    ItemInstance.AddForce (new Vector2 (0, -150));
                 }
             }
 
             if (col.transform.tag == "ball2" && random == 1)
             {
-                Rigidbody ItemInstance;
+                Rigidbody2D ItemInstance;
                 itemChance(2);
 
                 if (DestroyObjectsBottomBorder.ballCount2 > 1 && (i == 4 || i == 6))
@@ -124,25 +124,25 @@ public class StrongBlockPhys : MonoBehaviour {
                     itemChance(2);
                 }
          
-                if (BlockPhys.brickZähler > 5)
+                if (BrickPhysikScript.brickZähler > 5)
                 {
-                    ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
-                    ItemInstance.AddForce(0, 150, 0);
+                    ItemInstance = Instantiate(RbitemPrefab[i], new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as Rigidbody2D;
+                    ItemInstance.AddForce(new Vector2(0, 150));
                 }
             }
 
             if (col.transform.tag == "ball")
             {
-                Player1Control.player1Score += 200;
+                Paddle1Script.player1Score += 200;
                 Destroy(gameObject);
-                BlockPhys.brickZähler--; 
+                BrickPhysikScript.brickZähler--; 
             }
 
             if (col.transform.tag == "ball2")
             {
-                Player2Control.player2Score += 200;
+                Paddle2Script.player2Score += 200;
                 Destroy(gameObject);
-                BlockPhys.brickZähler--;
+                BrickPhysikScript.brickZähler--;
             }
         }
 

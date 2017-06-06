@@ -24,12 +24,12 @@ public class BrickPhysikScript : MonoBehaviour
       	//Paddle Big 35%
         if (chanceItem > 0 && chanceItem <= 35)
         {
-            i = 0;
+            i = 0; //0
         }
         //Paddle small 20%
         else if (chanceItem > 35 && chanceItem <= 55)
         {
-            i = 1;
+            i = 1; //1
         }
         //Shield 15%
         else if (chanceItem > 55 && chanceItem <= 70)
@@ -37,21 +37,21 @@ public class BrickPhysikScript : MonoBehaviour
             i = 2;
         }
         // Add Ball 15%
-        /*else if (chanceItem > 60 && chanceItem <= 75)
+        else if (chanceItem > 60 && chanceItem <= 75)
         {
             if (playernumber == 1 && Player1Control.powerballstatus == false && Player1Control.powerballCollected == false && Player1Control.gluestatus == false)
             {
-                i = 2;
+                i = 5;
             }
             else if(playernumber == 2 && Player2Control.powerballstatus == false && Player2Control.powerballCollected == false && Player2Control.gluestatus == false)
             {
-                i = 2;
+                i = 5;
             }
             else
             {
                 itemChance(playernumber);
             }
-        }*/
+        }
         //Control Change 15%
         else if (chanceItem > 70 && chanceItem <= 85)
         {

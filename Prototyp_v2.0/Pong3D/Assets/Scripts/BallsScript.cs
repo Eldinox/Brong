@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class BallsScript : MonoBehaviour
 {
-    public Rigidbody rb;
+    public Rigidbody2D rb;
     public int ballSpeed = 4;
     static public bool startposition = true;
     public GameObject playerPaddle;
@@ -18,9 +18,9 @@ public class BallsScript : MonoBehaviour
     public float gameTimer = 0;
     
     // Use this for initialization
-    void Start()
+   /* void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
     void Awake()
     {
@@ -80,14 +80,14 @@ public class BallsScript : MonoBehaviour
         if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W)&& (startposition || Player1Control.glued && Player1Control.isClone == false) )
         {
             rb.velocity = new Vector3(0,0,0);
-            GetComponent<Rigidbody>().AddForce(600, 300, 0);
+            GetComponent<Rigidbody2D>().AddForce(600, 300, 0);
             startposition = false;
         }   
 
         if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W) && (startposition || Player1Control.glued && Player1Control.isClone == false) )
         {
              rb.velocity = new Vector3(0,0,0);
-             GetComponent<Rigidbody>().AddForce(-600, 300, 0);
+             GetComponent<Rigidbody2D>().AddForce(-600, 300, 0);
              startposition = false;
         }  
 
@@ -100,14 +100,14 @@ public class BallsScript : MonoBehaviour
         else if(Input.GetKey(KeyCode.W) && (Player1Control.glued && Player1Control.isClone == false))
         {
             rb.velocity = new Vector3(0, 0, 0);
-            GetComponent<Rigidbody>().AddForce(0, 300, 0);
+            GetComponent<Rigidbody2D>().AddForce(0, 300, 0);
             startposition = false;
             Player1Control.glued = false;
         }
         else if (Input.GetKey(KeyCode.W) && (Player1Control.glued && Player1Control.isClone))
         {
             Player1Control.ItemInstance.velocity = new Vector3(0, 0, 0);
-            Player1Control.ItemInstance.AddForce(0, 300, 0);
+            Player1Control.ItemInstance.AddForce(new Vector2(0, 300));
             startposition = false;
             Player1Control.glued = false;
         }
@@ -179,5 +179,5 @@ public class BallsScript : MonoBehaviour
                 rb.velocity = new Vector3(winkelX2 * 5, rb.velocity.y, 0);
             }
         }
-    }
+    }*/
 }

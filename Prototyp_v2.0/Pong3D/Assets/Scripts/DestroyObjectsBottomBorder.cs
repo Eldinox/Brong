@@ -3,8 +3,8 @@ using System.Collections;
 
 public class DestroyObjectsBottomBorder : MonoBehaviour
 {
-    public BallsScript bs;
-    public BallsScript2 bs2;
+    public BallPhysikScript bs;
+    public Ball2PhysikScript bs2;
     public static int ballCount1 = 1;
     public static int ballCount2 = 1;
     public bool servestatus1 = false;
