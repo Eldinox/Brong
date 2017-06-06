@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MatchBallScript : MonoBehaviour
 {
-    public Rigidbody rb;
+    public Rigidbody2D rb;
     public int ballSpeed = 10;
     static public bool startposition = true;
     public GameObject playerPaddle;
@@ -14,7 +14,7 @@ public class MatchBallScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
@@ -26,58 +26,58 @@ public class MatchBallScript : MonoBehaviour
 
         if (startposition == true && transform.position.y < -4)
         {
-            transform.position = new Vector3(playerPaddle.transform.position.x, -4.4f, -0.7f);
+            transform.position = new Vector2(playerPaddle.transform.position.x, -4.4f);
 
             if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.W))
             {
-                rb.velocity = new Vector3(0, 0, 0);
-                GetComponent<Rigidbody>().AddForce(600, 300, 0);
+                rb.velocity = new Vector2(0, 0);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2 (600, 300));
                 startposition = false;
             }
 
             if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.W))
             {
-                rb.velocity = new Vector3(0, 0, 0);
-                GetComponent<Rigidbody>().AddForce(-600, 300, 0);
+                rb.velocity = new Vector2(0, 0);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, 300));
                 startposition = false;
             }
 
             if (Input.GetKey(KeyCode.W))
             {
-                rb.velocity = new Vector3(0, 0, 0);
-                rb.AddForce(0, 300, 0);
+                rb.velocity = new Vector2(0, 0);
+                rb.AddForce(new Vector2 (0, 300));
                 startposition = false;
             }
         }
 
         if (startposition == true && transform.position.y > 4)
         {
-            transform.position = new Vector3(playerPaddle2.transform.position.x, 4.3f, -0.7f);
+            transform.position = new Vector2(playerPaddle2.transform.position.x, 4.3f);
             
             if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U))
             {
-                rb.velocity = new Vector3(0, 0, 0);
-                GetComponent<Rigidbody>().AddForce(600, -300, 0);
+                rb.velocity = new Vector2(0, 0);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2 (600, -300));
                 startposition = false;
             }
 
             if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U))
             {
                 rb.velocity = new Vector3(0, 0, 0);
-                GetComponent<Rigidbody>().AddForce(-600, -300, 0);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, -300));
                 startposition = false;
             }
 
             if (Input.GetKey(KeyCode.U))
             {
-                rb.velocity = new Vector3(0, 0, 0);
-                GetComponent<Rigidbody>().AddForce(0, -300, 0);
+                rb.velocity = new Vector2(0, 0);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -300));
                 startposition = false;
             }
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.tag == "BottomBorder")
         {
@@ -91,20 +91,22 @@ public class MatchBallScript : MonoBehaviour
             P2Torkassiert = true;
         }
 
-        foreach (ContactPoint contact in col.contacts)
-        { 
-            if (col.transform.tag == "Player1Paddle" && playerPaddle.transform.position.x < Player1Control.rightLimit - 0.1 && playerPaddle.transform.position.x > Player1Control.leftLimit + 0.1) // damit den ball nicht das paddle folgt wenn das hackt und geht mehr als die grennzung
+        foreach (ContactPoint2D contact in col.contacts)
+        {
+            if (col.transform.tag == "Player1Paddle")
             {
+                GetComponent<SpriteRenderer>().color = new Color(84f, 159f,242f, 1.0f);
                 float winkel = contact.point.x - playerPaddle.transform.position.x;
-                float winkelX = winkel / (playerPaddle.transform.localScale.x / 2);
-                rb.velocity = new Vector3(winkelX * 5, rb.velocity.y, 0);
+                float winkelX = winkel / Paddle1Script.paddleSize;
+                rb.velocity = new Vector2(winkelX * 5, rb.velocity.y);
             }
 
-            if (col.transform.tag == "Player2Paddle" && playerPaddle2.transform.position.x < Player2Control.rightLimit - 0.1 && playerPaddle2.transform.position.x > Player2Control.leftLimit + 0.1)
+            if (col.transform.tag == "Player2Paddle")
             {
+                GetComponent<SpriteRenderer>().color = new Color(218f, 52f, 56f , 1.0f);
                 float winkel = contact.point.x - playerPaddle2.transform.position.x;
-                float winkelX2 = winkel / (playerPaddle2.transform.localScale.x / 2);
-                rb.velocity = new Vector3(winkelX2 * 5, rb.velocity.y, 0);
+                float winkelX2 = winkel / Paddle2Script.paddleSize;
+                rb.velocity = new Vector2(winkelX2 * 5, rb.velocity.y);
             }
         }
     }

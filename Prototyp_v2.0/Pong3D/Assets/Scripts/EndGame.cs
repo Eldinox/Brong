@@ -29,6 +29,11 @@ public class EndGame : MonoBehaviour
     float lifeBorder2;
     public GameObject WinLose1;
     public GameObject WinLose2;
+    public GameObject Level1;
+    public GameObject Level2;
+    public GameObject Level3;
+    public int Levelcount = 0;
+
 
     // Use this for initialization
     void Start(){}
@@ -37,6 +42,7 @@ public class EndGame : MonoBehaviour
     {
         lifeBorder1 = player1Life * 0.19999f;
         lifeBorder2 = player2Life * 0.19999f;
+        Debug.Log("countLevel" +Levelcount);
        
         if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.U)) && gameEnded == true)
         { 
@@ -89,10 +95,43 @@ public class EndGame : MonoBehaviour
             }
         }
 
-        if (BrickPhysikScript.brickZähler == 0)
+        if(BrickPhysikScript.brickZähler == 0 && endgameStarted == false)
+        {
+            //GameObject.FindGameObjectWithTag("Level2").SetActive(true);
+            
+            //BrickPhysikScript.brickZähler = 10;
+            Levelcount++;
+            if (Levelcount == 1)
+            {
+                Level1.SetActive(false);
+                Level2.SetActive(true);
+                BallPhysikScript.startposition = true;
+                Ball2PhysikScript.startposition = true;
+
+
+            }
+            if (Levelcount == 2)
+            {
+                BallPhysikScript.startposition = true;
+                Ball2PhysikScript.startposition = true;
+                Level2.SetActive(false);
+                Level3.SetActive(true);
+            }
+            if (Levelcount == 3)
+            {
+                BallPhysikScript.startposition = true;
+                Ball2PhysikScript.startposition = true;
+                Level3.SetActive(false);
+                endgameStarted = true;
+            }
+        }
+
+        if (Levelcount == 3)
         {
             startEndgame();
             endgameStarted = true;
+            Debug.Log("lifes1 =" + player1Life);
+            Debug.Log("lifes2 =" + player2Life);
 
             if (LifesCount == false)
             {
@@ -212,13 +251,13 @@ public class EndGame : MonoBehaviour
         {
             if(player1Life > player2Life)
             {
-                MatchBall.transform.position = new Vector3(playerPaddle2.transform.position.x, 4.3f, -0.7f);
+                MatchBall.transform.position = new Vector2(playerPaddle2.transform.position.x, 4.3f);
                 MatchBall.SetActive(true);
             }
 
             if (player1Life < player2Life)
             {
-                MatchBall.transform.position = new Vector3(playerPaddle.transform.position.x, -4.5f, -0.7f);
+                MatchBall.transform.position = new Vector2(playerPaddle.transform.position.x, -4.5f);
                 MatchBall.SetActive(true);
             }
 
@@ -228,13 +267,13 @@ public class EndGame : MonoBehaviour
                 
                 if (random == 0)
                 {
-                    MatchBall.transform.position = new Vector3(playerPaddle2.transform.position.x, 4.3f, -0.7f);
+                    MatchBall.transform.position = new Vector2(playerPaddle2.transform.position.x, 4.3f);
                     MatchBall.SetActive(true);
                     coinFlipMB = true;
                 }
                 else if (random == 1)
                 {
-                    MatchBall.transform.position = new Vector3(playerPaddle.transform.position.x, -4.5f, -0.7f);
+                    MatchBall.transform.position = new Vector2(playerPaddle.transform.position.x, -4.5f);
                     MatchBall.SetActive(true);
                     coinFlipMB = true;
                 }

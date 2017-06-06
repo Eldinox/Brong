@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pong3D", "Pong3D.csproj", "{69BA4ADB-F866-88E3-59E4-3E7DC2EF912E}"
 EndProject
 Global

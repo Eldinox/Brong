@@ -4,9 +4,9 @@ using System.Collections;
 public class MoveBlock : MonoBehaviour 
 {
      public GameObject MoveBlock1;
-     public GameObject MoveBlock2;
+     /*public GameObject MoveBlock2;
      public GameObject MoveBlock3;
-     public GameObject MoveBlock4;
+     public GameObject MoveBlock4;*/
 
     // Use this for initialization
     void Start (){}
@@ -15,9 +15,9 @@ public class MoveBlock : MonoBehaviour
     void Update () 
     {
         translateMB1();
-        translateMB2();
+       /* translateMB2();
         translateMB3();
-        translateMB4();
+        translateMB4();*/
 
         if(EndGame.endgameStarted == true) // wurde in BlockPys nochmal "false" zurrückgesetzt 
         {
@@ -25,18 +25,18 @@ public class MoveBlock : MonoBehaviour
         }else
         {
             MoveBlock1.SetActive(true);
-            MoveBlock2.SetActive(true);
+           /* MoveBlock2.SetActive(true);
             MoveBlock3.SetActive(true);
-            MoveBlock4.SetActive(true);
+            MoveBlock4.SetActive(true);*/
         }
     }
 
     public void SwitchMoveBlocks()
     {
         MoveBlock1.SetActive(false);
-        MoveBlock2.SetActive(false);
+        /*MoveBlock2.SetActive(false);
         MoveBlock3.SetActive(false);
-        MoveBlock4.SetActive(false);
+        MoveBlock4.SetActive(false);*/
     }
 
     void translateMB1()
@@ -62,7 +62,7 @@ public class MoveBlock : MonoBehaviour
         }
     }
 
-    void translateMB2()
+   /* void translateMB2()
     {
         if (MoveBlock2.transform.position.x <= 1.2 && MoveBlock2.transform.position.y >= 1.2)
         {
@@ -129,5 +129,5 @@ public class MoveBlock : MonoBehaviour
         {
             MoveBlock4.transform.Translate(0, Time.deltaTime/2, 0);
         }
-    }
+    }*/
 } 

@@ -88,12 +88,12 @@ public class Ball2PhysikScript : MonoBehaviour
     {
         if (playerPaddle.transform.localScale.x >= 1.5f )
         {
-            playerPaddle.transform.localScale = new Vector3(1.5f, 0.2f, 0.6f);
+            playerPaddle.transform.localScale = new Vector3(0.15f, 0.16f, 0.16f);
         }
 
         if (playerPaddle.transform.localScale.x <= 1.5f && EndGame.endgameStarted == true)
         {
-            playerPaddle.transform.localScale = new Vector3(1.5f, 0.2f, 0.6f);
+            playerPaddle.transform.localScale = new Vector3(0.15f, 0.16f, 0.16f);
         }
         Paddle2Script.shieldstatus = false;
         Paddle2Script.gluestatus = false;

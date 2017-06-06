@@ -9,15 +9,18 @@ public class BorderDestroyObjectsScript : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
     {
-        /*if(col.gameObject.transform.tag == "Matchball" && col.gameObject.transform.position.y > 4)
+        if(col.gameObject.transform.tag == "Matchball" && col.gameObject.transform.position.y > 4)
+
         {
+            Debug.Log("matchballhere1");
             EndGame.player2Life -= 1;
         }
 
         if (col.gameObject.transform.tag == "Matchball" && col.gameObject.transform.position.y < 4)
         {
+            Debug.Log("matchballhere2");
             EndGame.player1Life -= 1;
-        }*/
+        }
 
         if (col.gameObject.transform.tag == "ball")
         {
