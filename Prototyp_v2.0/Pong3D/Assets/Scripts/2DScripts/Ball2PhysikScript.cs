@@ -48,21 +48,21 @@ public class Ball2PhysikScript : MonoBehaviour
         if(Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U) && (startposition || Paddle2Script.glued))
         {
             rb.velocity = new Vector2(0,0);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, 300));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, -300));
             startposition = false;
         }   
 
         if(Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && (startposition || Paddle2Script.glued))
         {
             rb.velocity = new Vector2(0,0);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(600, 300));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(600, -300));
             startposition = false;
         }  
 
         if(Input.GetKey(KeyCode.U) && (startposition || Paddle2Script.glued))
         {
             rb.velocity = new Vector2(0,0);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -300));
             startposition = false; 
             Paddle2Script.glued = false;
         }

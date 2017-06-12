@@ -251,13 +251,13 @@ public class EndGame : MonoBehaviour
         {
             if(player1Life > player2Life)
             {
-                MatchBall.transform.position = new Vector2(playerPaddle2.transform.position.x, 4.3f);
+                MatchBall.transform.position = new Vector2(playerPaddle2.transform.position.x, 4.45f);
                 MatchBall.SetActive(true);
             }
 
             if (player1Life < player2Life)
             {
-                MatchBall.transform.position = new Vector2(playerPaddle.transform.position.x, -4.5f);
+                MatchBall.transform.position = new Vector2(playerPaddle.transform.position.x, -4.45f);
                 MatchBall.SetActive(true);
             }
 
@@ -267,13 +267,13 @@ public class EndGame : MonoBehaviour
                 
                 if (random == 0)
                 {
-                    MatchBall.transform.position = new Vector2(playerPaddle2.transform.position.x, 4.3f);
+                    MatchBall.transform.position = new Vector2(playerPaddle2.transform.position.x, 4.45f);
                     MatchBall.SetActive(true);
                     coinFlipMB = true;
                 }
                 else if (random == 1)
                 {
-                    MatchBall.transform.position = new Vector2(playerPaddle.transform.position.x, -4.5f);
+                    MatchBall.transform.position = new Vector2(playerPaddle.transform.position.x, -4.45f);
                     MatchBall.SetActive(true);
                     coinFlipMB = true;
                 }

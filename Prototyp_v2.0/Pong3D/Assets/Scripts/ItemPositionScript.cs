@@ -3,12 +3,7 @@ using System.Collections;
 
 public class ItemPositionScript : MonoBehaviour 
 {
-    public Transform position1;
-    public Transform position2;
-    public Transform position3;
-    public Transform position4;
-    public Transform position5;
-    public Transform position6;
+   
     public GameObject shield;
     public GameObject glue;
     public GameObject controlchange;
@@ -17,63 +12,70 @@ public class ItemPositionScript : MonoBehaviour
     public GameObject controlchange2;
 
     // Use this for initialization
-    void Start (){}
+    void Start ()
+    {
+        shield.GetComponent<SpriteRenderer>().enabled = false;
+        glue.GetComponent<SpriteRenderer>().enabled = false;
+        controlchange.GetComponent<SpriteRenderer>().enabled = false;
+        shield2.GetComponent<SpriteRenderer>().enabled = false;
+        glue2.GetComponent<SpriteRenderer>().enabled = false;
+        controlchange2.GetComponent<SpriteRenderer>().enabled = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Player1Control.shieldstatus)
+        if (Paddle1Script.shieldstatus)
         {
-            shield.transform.position = position1.position;
+            shield.GetComponent<SpriteRenderer>().enabled = true;
         }
-        else if (Player1Control.shieldstatus == false)
+        else if (Paddle1Script.shieldstatus == false)
         {
-            shield.transform.position = new Vector3(-1.7f, -7f, -0.7f);
-        }
-
-        if (Player1Control.gluestatus)
-        {
-            glue.transform.position = position2.position;
-        }
-        else if (Player1Control.gluestatus == false)
-        {
-            glue.transform.position = new Vector3(-1.7f, -7f, -0.7f);
+            shield.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        if (Player1Control.controlChange)
+        if (Paddle1Script.gluestatus)
         {
-            controlchange.transform.position = position3.position;
+            glue.GetComponent<SpriteRenderer>().enabled = true;
         }
-        else if (Player1Control.controlChange == false)
+        else if (Paddle1Script.gluestatus == false)
         {
-            controlchange.transform.position = new Vector3(-1.7f, -7f, -0.7f);
-        }
-
-        if (Player2Control.shieldstatus)
-        {
-            shield2.transform.position = position4.position;
-        }
-        else if (Player2Control.shieldstatus == false)
-        {
-            shield2.transform.position = new Vector3(1.7f, 7f, -0.7f);
+            glue.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        if (Player2Control.gluestatus)
+        if (Paddle1Script.controlChange)
         {
-            glue2.transform.position = position5.position;
+            controlchange.GetComponent<SpriteRenderer>().enabled = true;
         }
-        else if (Player2Control.gluestatus == false)
+        else if (Paddle1Script.controlChange == false)
         {
-            //gameObject.SetActive(false);
-            glue2.transform.position = new Vector3(1.7f, 7f, 0.7f);
+            controlchange.GetComponent<SpriteRenderer>().enabled = false;
         }
+        if (Paddle2Script.shieldstatus)
+            {
+                shield2.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        else if (Paddle2Script.shieldstatus == false)
+            {
+                shield2.GetComponent<SpriteRenderer>().enabled = false;
+            }
 
-        if (Player2Control.controlChange)
-        {
-            controlchange2.transform.position = position6.position;
-        }
-        else if (Player2Control.controlChange == false)
-        {
-            controlchange2.transform.position = new Vector3(1.7f, 7f, 0.7f);
-        }
-    }  
+        if (Paddle2Script.gluestatus)
+            {
+                glue2.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        else if (Paddle2Script.gluestatus == false)
+            {
+                //gameObject.SetActive(false);
+                glue2.GetComponent<SpriteRenderer>().enabled = false;
+            }
+
+         if (Paddle2Script.controlChange)
+            {
+                controlchange2.GetComponent<SpriteRenderer>().enabled = true;
+            }
+         else if (Paddle2Script.controlChange == false)
+            {
+                controlchange2.GetComponent<SpriteRenderer>().enabled = false;
+            }
+    }     
 }
