@@ -24,15 +24,18 @@ public class BorderDestroyObjectsScript : MonoBehaviour
 
         if (col.gameObject.transform.tag == "ball")
         {
-            if (col.gameObject.transform.position.y < 4)  
+           
+            if (col.gameObject.transform.position.y < 0)  
             {
                 bs.Standby(); 
-                bs.ResetPowerups();  
+                bs.ResetPowerups();
+                Debug.Log("Ballweg");
             }
-            else if (col.gameObject.transform.position.y > -4)
+            else if (col.gameObject.transform.position.y > 0)
             {
                 if(Paddle2Script.player2Score > 500)
                 {
+                    Debug.Log("Punkte");
                 	Paddle2Script.player2Score -= 500;
                 	Paddle1Script.player1Score += 500;
                 }
@@ -45,6 +48,7 @@ public class BorderDestroyObjectsScript : MonoBehaviour
             {
                 if(Paddle1Script.player1Score > 500)
                 {
+                    Debug.Log("Punkte");
                 	Paddle1Script.player1Score -= 500;
                 	Paddle2Script.player2Score += 500;
                 }   

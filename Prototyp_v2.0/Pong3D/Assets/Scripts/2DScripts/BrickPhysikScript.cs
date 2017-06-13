@@ -6,6 +6,7 @@ public class BrickPhysikScript : MonoBehaviour
 	public Rigidbody2D[] RbitemPrefab;
     private int chanceItem;
     private int i;
+    public int BrickScore = 50;
     //private GameObject[] bricks;
     public static int brickZähler;
 
@@ -74,14 +75,14 @@ public class BrickPhysikScript : MonoBehaviour
     {
         if (other.transform.tag == "ball")
         {
-            Paddle1Script.player1Score += 50;
+            Paddle1Script.player1Score += BrickScore;
             Destroy(gameObject);
             brickZähler--;
         }
 
 		if (other.transform.tag == "ball2")
         {
-            Paddle2Script.player2Score += 50;
+            Paddle2Script.player2Score += BrickScore;
             Destroy(gameObject);
             brickZähler--;
 		}
@@ -127,14 +128,14 @@ public class BrickPhysikScript : MonoBehaviour
 
 		if (col.transform.tag == "ball")
         {
-            Paddle1Script.player1Score += 50;
+            Paddle1Script.player1Score += BrickScore;
             Destroy(gameObject);
             brickZähler--;
         }
 
         if (col.transform.tag == "ball2")
         {
-            Paddle2Script.player2Score += 50;
+            Paddle2Script.player2Score += BrickScore;
             Destroy(gameObject);
             brickZähler--;
         }

@@ -50,7 +50,7 @@ public class EndGame : MonoBehaviour
             BrickPhysikScript.brickZähler = 112;
             BrickPhysikScript.brickZähler = 187;*/
             endgameStarted = false;
-            Application.LoadLevel("MainMenu");
+            Application.LoadLevel("HowTo");
         }
 
         if (MatchBallScript.P1Torkassiert == true )

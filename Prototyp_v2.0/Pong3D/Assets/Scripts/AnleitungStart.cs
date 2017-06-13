@@ -17,6 +17,6 @@ public class AnleitungStart : MonoBehaviour
     public void BackToMenu()
     {
         GetComponent<AudioSource>().Play();
-        Application.LoadLevel("MainMenu");
+        Application.LoadLevel("Test");
     }
 }

@@ -19,6 +19,7 @@ public class Ball2PhysikScript : MonoBehaviour
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
+        startposition = true;
 	}
 	
 	void Update () 
@@ -86,14 +87,16 @@ public class Ball2PhysikScript : MonoBehaviour
 
     public void ResetPowerups2()
     {
-        if (playerPaddle.transform.localScale.x >= 1.5f )
+        if (Paddle2Script.paddleSize > 0.75f)
         {
-            playerPaddle.transform.localScale = new Vector3(0.15f, 0.16f, 0.16f);
+            playerPaddle2.transform.localScale = new Vector2(0.15f, 0.16f);
+            Paddle2Script.paddleSize = 0.75f;
         }
 
-        if (playerPaddle.transform.localScale.x <= 1.5f && EndGame.endgameStarted == true)
+        if (Paddle2Script.paddleSize < 0.75f && EndGame.endgameStarted)
         {
-            playerPaddle.transform.localScale = new Vector3(0.15f, 0.16f, 0.16f);
+            playerPaddle2.transform.localScale = new Vector2(0.15f, 0.16f);
+            Paddle2Script.paddleSize = 0.75f;
         }
         Paddle2Script.shieldstatus = false;
         Paddle2Script.gluestatus = false;
