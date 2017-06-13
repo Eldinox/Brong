@@ -33,11 +33,18 @@ public class BorderDestroyObjectsScript : MonoBehaviour
             }
             else if (col.gameObject.transform.position.y > 0)
             {
-                if(Paddle2Script.player2Score > 500)
+                if(Paddle2Script.player2Score >= 500)
                 {
                     Debug.Log("Punkte");
                 	Paddle2Script.player2Score -= 500;
                 	Paddle1Script.player1Score += 500;
+                }
+                if(Paddle2Script.player2Score < 500)
+                {
+                    Debug.Log("Punkte");
+                    Paddle1Script.player1Score += Paddle2Script.player2Score;
+                    Paddle2Script.player2Score -= Paddle2Script.player2Score;
+                    
                 }
                 bs.Serve();
             }
@@ -46,12 +53,19 @@ public class BorderDestroyObjectsScript : MonoBehaviour
         {
             if (col.gameObject.transform.position.y < 4)  
             {
-                if(Paddle1Script.player1Score > 500)
+                if(Paddle1Script.player1Score >= 500)
                 {
                     Debug.Log("Punkte");
                 	Paddle1Script.player1Score -= 500;
                 	Paddle2Script.player2Score += 500;
-                }   
+                } 
+                if(Paddle1Script.player1Score < 500)
+                {
+                    Debug.Log("Punkte");
+                    Paddle2Script.player2Score += Paddle1Script.player1Score;
+                    Paddle1Script.player1Score -= Paddle1Script.player1Score;
+                    
+                }  
                 bs2.Serve();
             }
             else if (col.gameObject.transform.position.y > -4)

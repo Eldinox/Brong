@@ -202,18 +202,21 @@ public class EndGame : MonoBehaviour
 
     void countLifes()
     {
-        if (Paddle1Script.player1Score >= 6000)
-        {
-            Paddle1Script.player1Score = 5000;
-        }
-
-        if (Paddle2Script.player2Score >= 6000)
-        {
-            Paddle2Script.player2Score = 5000;
-        }
-
-        player1Life = (Paddle1Script.player1Score / 1000);
+         player1Life = (Paddle1Script.player1Score / 1000);
         player2Life = (Paddle2Script.player2Score / 1000);
+
+     if (Paddle1Script.player1Score >= 5000)
+        {
+            player1Life = 5;
+        }
+
+        if (Paddle2Script.player2Score >= 5000)
+        {
+           player2Life = 5;        
+        }
+           
+    
+       
         LifesCount = true;
     }
 

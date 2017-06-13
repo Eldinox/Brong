@@ -26,7 +26,7 @@ public class MatchBallScript : MonoBehaviour
 
         if (startposition == true && transform.position.y < -4)
         {
-            transform.position = new Vector2(playerPaddle.transform.position.x, -4.4f);
+            transform.position = new Vector2(playerPaddle.transform.position.x, -4.45f);
 
             if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.W))
             {
@@ -52,7 +52,7 @@ public class MatchBallScript : MonoBehaviour
 
         if (startposition == true && transform.position.y > 4)
         {
-            transform.position = new Vector2(playerPaddle2.transform.position.x, 4.3f);
+            transform.position = new Vector2(playerPaddle2.transform.position.x, 4.45f);
             
             if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U))
             {

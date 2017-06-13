@@ -46,21 +46,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Ball2PhysikScript.cs" />
-     <Compile Include="Assets\BallPhysikScript.cs" />
-     <Compile Include="Assets\BorderDestroyObjectsScript.cs" />
-     <Compile Include="Assets\BrickPhysikScript.cs" />
-     <Compile Include="Assets\Item2DSpriteScript.cs" />
-     <Compile Include="Assets\Paddle1Script.cs" />
-     <Compile Include="Assets\Paddle2Script.cs" />
-     <Compile Include="Assets\Scripts\AnleitungStart.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\NewBehaviourScript1.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\AnleitungStart.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\Ball2PhysikScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\BallPhysikScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\BorderDestroyObjectsScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\BrickPhysikScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\EndGame.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\FPSCounterScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\Item2DSpriteScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\Paddle1Script.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\Paddle2Script.cs" />
      <Compile Include="Assets\Scripts\BallsScript.cs" />
      <Compile Include="Assets\Scripts\BallsScript2.cs" />
      <Compile Include="Assets\Scripts\BigPaddleItemScript.cs" />
      <Compile Include="Assets\Scripts\BlockPhys.cs" />
      <Compile Include="Assets\Scripts\DestroyObjectsBottomBorder.cs" />
-     <Compile Include="Assets\Scripts\EndGame.cs" />
-     <Compile Include="Assets\Scripts\FPSCounterScript.cs" />
      <Compile Include="Assets\Scripts\ItemPositionScript.cs" />
      <Compile Include="Assets\Scripts\ItemPrefabScript.cs" />
      <Compile Include="Assets\Scripts\Level1Start.cs" />
@@ -76,6 +78,7 @@
      <Compile Include="Assets\Scripts\PreviewPlayer2.cs" />
      <Compile Include="Assets\Scripts\ShieldScript.cs" />
      <Compile Include="Assets\Scripts\StrongBlockPhys.cs" />
+     <Compile Include="Assets\Scripts\StrongBrickPhysik.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

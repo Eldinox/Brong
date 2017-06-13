@@ -149,10 +149,21 @@ public class StrongBrickPhysik : MonoBehaviour
 
         if (blockHealth == 2)
         {
+             float rot = Random.value;
+             float grün = Random.value;
+             float blau = Random.value;
+            while(blau >= 0.9 || blau <= 0.1 || grün >= 0.9 || grün <= 0.1 || rot >= 0.9 || rot <= 0.1)
+            {
+                rot = Random.value;
+                grün = Random.value;
+                blau = Random.value;
+            }
             //rend.sharedMaterial = texture[0];
             //GetComponentSpriteRenderer.color = Color.white;
-            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            Color newColor = new Color(rot, grün, blau, 1.0f);
             GetComponent<SpriteRenderer>().color = newColor;
+            
+            
 
         }
 
