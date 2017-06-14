@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\2DScripts\Item2DSpriteScript.cs" />
      <Compile Include="Assets\Scripts\2DScripts\Paddle1Script.cs" />
      <Compile Include="Assets\Scripts\2DScripts\Paddle2Script.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\PowerballAnimation.cs" />
      <Compile Include="Assets\Scripts\BallsScript.cs" />
      <Compile Include="Assets\Scripts\BallsScript2.cs" />
      <Compile Include="Assets\Scripts\BigPaddleItemScript.cs" />

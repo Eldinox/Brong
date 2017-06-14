@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
@@ -50,7 +51,8 @@ public class EndGame : MonoBehaviour
             BrickPhysikScript.brickZähler = 112;
             BrickPhysikScript.brickZähler = 187;*/
             endgameStarted = false;
-            Application.LoadLevel("HowTo");
+            /*Application.LoadLevel("HowTo");*/
+            SceneManager.LoadScene("HowTo");
         }
 
         if (MatchBallScript.P1Torkassiert == true )

@@ -7,10 +7,10 @@ public class Level1Start : MonoBehaviour
 	void Start(){}
 	// Update is called once per frame
 	void Update(){}
-
+/*
 	public void onClick()
 	{
 		GetComponent<AudioSource>().Play();
 		Application.LoadLevel("Brong");
-	}
+	}*/
 }

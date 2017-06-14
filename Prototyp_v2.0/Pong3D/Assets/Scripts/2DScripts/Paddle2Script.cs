@@ -22,6 +22,8 @@ public class Paddle2Script : MonoBehaviour
     public static bool shieldstatus = false;
     public static bool gluestatus = false;
     public static bool glued = false;
+    public static bool powerballstatus = false;
+    public static bool powerballCollected = false;
     public float shieldTime = 8f;
     public float glueTime = 12f;
     float contactPointGlue;
@@ -185,6 +187,18 @@ public class Paddle2Script : MonoBehaviour
             shieldTime = 8f;
             shieldstatus = true;
             circleShield.fillAmount = 0;
+        }
+        //Powerball
+        if (collision.transform.tag == "powerballItem")
+        {
+            //GetComponent<AudioSource>().Play();
+            powerballCollected = true;
+        }
+
+        if (powerballCollected == true && collision.transform.tag == "ball2" || powerballCollected == true && Ball2PhysikScript.startposition == true)
+        {
+            powerballstatus = true;
+            powerballCollected = false;
         }
         #endregion
     }

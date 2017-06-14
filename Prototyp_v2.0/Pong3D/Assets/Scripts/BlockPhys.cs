@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BlockPhys : MonoBehaviour 
 {
-	public Rigidbody[] RbitemPrefab;
+	/*public Rigidbody[] RbitemPrefab;
     private int chanceItem;
     private int i;
     private GameObject[] bricks;
@@ -142,5 +142,5 @@ public class BlockPhys : MonoBehaviour
             Destroy(gameObject);
             brickZähler--;
         }
-	}
+	}*/
 }

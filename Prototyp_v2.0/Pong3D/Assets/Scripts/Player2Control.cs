@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Player2Control : MonoBehaviour 
 {
-	public GameObject playerPaddle;
+	/*public GameObject playerPaddle;
     public GameObject upperBorder;
     public Rigidbody rbball;
     public Rigidbody rbball2;
@@ -38,7 +38,7 @@ public class Player2Control : MonoBehaviour
     void Start(){}
     void Update()
     {
-        leftLimit = upperBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);  // 0,75 ist die hälfte unsere paddle (-6,25 + 0,75 = -5,5) ==> genau unesere limit
+        /*leftLimit = upperBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);  // 0,75 ist die hälfte unsere paddle (-6,25 + 0,75 = -5,5) ==> genau unesere limit
         rightLimit = upperBorder.GetComponent<Renderer>().bounds.max.x - (transform.localScale.x / 2);
       
         #region Shield
@@ -248,5 +248,5 @@ public class Player2Control : MonoBehaviour
             glued = true;
         }
         #endregion
-    }
+    }*/
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PreviewPlayer2 : MonoBehaviour 
 {
-	public Rigidbody rbball;
+	/*public Rigidbody rbball;
 	private float speed = 12f;
 
     // Use this for initialization
@@ -17,5 +17,5 @@ public class PreviewPlayer2 : MonoBehaviour
 		{
         	transform.position = new Vector3(rbball.transform.position.x , transform.position.y, transform.position.z);
 		}
-    }
+    }*/
 }

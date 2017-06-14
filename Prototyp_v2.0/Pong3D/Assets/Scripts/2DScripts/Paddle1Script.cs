@@ -6,7 +6,7 @@ using UnityEngine;
 public class Paddle1Script : MonoBehaviour  
 {
                                                 //Objectpooling für performance!
-	public GameObject bottomBorder;
+    public GameObject bottomBorder;
     public GameObject CCCloak;
     public GameObject GGCloak;
     public GameObject shield;
@@ -19,7 +19,7 @@ public class Paddle1Script : MonoBehaviour
     public Image circleGlue;
 
 
-	public static float speed = 6f;
+    public static float speed = 6f;
     public static float rightLimit;
     public static float leftLimit;
     public static float paddleSize = 0.75f;
@@ -31,6 +31,8 @@ public class Paddle1Script : MonoBehaviour
     public static bool shieldstatus = false;
     public static bool gluestatus = false;
     public static bool glued = false;
+    public static bool powerballstatus = false;
+    public static bool powerballCollected = false;
     public float shieldTime = 8f;
     public float glueTime = 12f;
     float contactPointGlue;
@@ -38,10 +40,10 @@ public class Paddle1Script : MonoBehaviour
     float speedItemTimerGlue = 12f;
 
     void Start (){}
-	
-	void Update () 
-	{
-		leftLimit = -bottomBorder.transform.localScale.x / 2 + paddleSize;
+    
+    void Update () 
+    {
+        leftLimit = -bottomBorder.transform.localScale.x / 2 + paddleSize;
         rightLimit = bottomBorder.transform.localScale.x / 2 - paddleSize;
 
         if (controlChange)
@@ -135,7 +137,7 @@ public class Paddle1Script : MonoBehaviour
             GGCloak.SetActive(false);
         }
         #endregion
-	}
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -196,13 +198,26 @@ public class Paddle1Script : MonoBehaviour
         }
 
         //Mehr Bälle
-        if (collision.transform.tag == "mehrbaelle")
+        /*if (collision.transform.tag == "mehrbaelle")
         {
             // GetComponent<AudioSource>().Play();
             mehrbällestatus = true;
             DestroyObjectsBottomBorder.ballCount1++;
             ItemInstance = Instantiate(rbball, new Vector2(transform.position.x, transform.position.y + 1f), Quaternion.identity) as Rigidbody2D;
             ItemInstance.AddForce(new Vector2(0, 150));
+        }*/
+
+        //Powerball
+        if (collision.transform.tag == "powerballItem")
+        {
+            //GetComponent<AudioSource>().Play();
+            powerballCollected = true;
+        }
+
+        if (powerballCollected == true && collision.transform.tag == "ball" || powerballCollected == true && BallPhysikScript.startposition == true)
+        {
+            powerballstatus = true;
+            powerballCollected = false;
         }
         #endregion
     }

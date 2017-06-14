@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class BallsScript : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    /*public Rigidbody2D rb;
     public int ballSpeed = 4;
     static public bool startposition = true;
     public GameObject playerPaddle;

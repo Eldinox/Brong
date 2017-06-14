@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BrickPhysikScript : MonoBehaviour 
 {
-	public Rigidbody2D[] RbitemPrefab;
+    public Rigidbody2D[] RbitemPrefab;
     private int chanceItem;
     private int i;
     public int BrickScore = 50;
@@ -22,7 +22,7 @@ public class BrickPhysikScript : MonoBehaviour
     {
         chanceItem = Random.Range(1, 100);
 
-      	//Paddle Big 35%
+        //Paddle Big 35%
         if (chanceItem > 0 && chanceItem <= 35)
         {
             i = 0; //0
@@ -38,7 +38,7 @@ public class BrickPhysikScript : MonoBehaviour
             i = 2;
         }
         // Add Ball 15%
-        else if (chanceItem > 60 && chanceItem <= 75)
+        /*else if (chanceItem > 60 && chanceItem <= 75)
         {
             if (playernumber == 1 && Player1Control.powerballstatus == false && Player1Control.powerballCollected == false && Player1Control.gluestatus == false)
             {
@@ -52,23 +52,23 @@ public class BrickPhysikScript : MonoBehaviour
             {
                 itemChance(playernumber);
             }
-        }
+        }*/
         //Control Change 15%
         else if (chanceItem > 70 && chanceItem <= 85)
         {
             i = 3;
         }
         //Glue 15%
-        else if (chanceItem > 85 && chanceItem <= 100)
+        else if (chanceItem > 85 && chanceItem <= 95)
         {
             i = 4;
         }
         //PowerBall 5%
-        /*else if(chanceItem > 95 && chanceItem <= 100 )
+        else if(chanceItem > 95 && chanceItem <= 100 )
         {
-            i = 6;
-        }*/
-   	}
+            i = 5;
+        }
+    }
     #endregion
 
     void OnTriggerEnter2D(Collider2D other)
@@ -80,27 +80,22 @@ public class BrickPhysikScript : MonoBehaviour
             brickZähler--;
         }
 
-		if (other.transform.tag == "ball2")
+        if (other.transform.tag == "ball2")
         {
             Paddle2Script.player2Score += BrickScore;
             Destroy(gameObject);
             brickZähler--;
-		}
-	}
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-		int random = Random.Range(0, 5);
+        int random = Random.Range(0, 5);
         
-      	if (col.transform.tag == "ball" && random == 1)
+        if (col.transform.tag == "ball" && random == 1)
         {
             Rigidbody2D ItemInstance;
             itemChance(1);
-         
-            if (DestroyObjectsBottomBorder.ballCount1 > 1 &&  (i == 4 || i == 6))
-            {
-                itemChance(1);
-            }
 
             if (brickZähler > 5)
             {
@@ -114,11 +109,6 @@ public class BrickPhysikScript : MonoBehaviour
             Rigidbody2D ItemInstance;
             itemChance(2);
 
-            if (DestroyObjectsBottomBorder.ballCount2 > 1 && (i == 4 || i == 6))
-            {
-                itemChance(2);
-            }
-
             if (brickZähler > 5)
             {
                 ItemInstance = Instantiate(RbitemPrefab[i], new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as Rigidbody2D;
@@ -126,7 +116,7 @@ public class BrickPhysikScript : MonoBehaviour
             }     
         }
 
-		if (col.transform.tag == "ball")
+        if (col.transform.tag == "ball")
         {
             Paddle1Script.player1Score += BrickScore;
             Destroy(gameObject);
@@ -139,5 +129,5 @@ public class BrickPhysikScript : MonoBehaviour
             Destroy(gameObject);
             brickZähler--;
         }
-	}
+    }
 }

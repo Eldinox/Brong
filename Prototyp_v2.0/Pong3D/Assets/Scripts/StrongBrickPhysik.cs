@@ -41,7 +41,7 @@ public class StrongBrickPhysik : MonoBehaviour
             i = 2;
         }
         // Add Ball 15%
-        else if (chanceItem > 60 && chanceItem <= 75)
+        /*else if (chanceItem > 60 && chanceItem <= 75)
         {
             if (playernumber == 1 && Player1Control.powerballstatus == false && Player1Control.powerballCollected == false && Player1Control.gluestatus == false)
             {
@@ -55,22 +55,22 @@ public class StrongBrickPhysik : MonoBehaviour
             {
                 itemChance(playernumber);
             }
-        }
+        }*/
         //Control Change 15%
         else if (chanceItem > 70 && chanceItem <= 85)
         {
             i = 3;
         }
         //Glue 15%
-        else if (chanceItem > 85 && chanceItem <= 100)
+        else if (chanceItem > 85 && chanceItem <= 95)
         {
             i = 4;
         }
         //PowerBall 5%
-        /*else if(chanceItem > 95 && chanceItem <= 100 )
+        else if(chanceItem > 95 && chanceItem <= 100 )
         {
-            i = 6;
-        }*/
+            i = 5;
+        }
     }
     #endregion
 
@@ -103,11 +103,6 @@ public class StrongBrickPhysik : MonoBehaviour
                 Rigidbody2D ItemInstance;
                 itemChance(1);
 
-                if (DestroyObjectsBottomBorder.ballCount1 > 1 && (i == 4 || i == 6))
-                {
-                    itemChance(1);
-                }
-
                 if (BrickPhysikScript.brickZähler > 5)
                 {
                     ItemInstance = Instantiate(RbitemPrefab[i], new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as Rigidbody2D;
@@ -119,11 +114,6 @@ public class StrongBrickPhysik : MonoBehaviour
             {
                 Rigidbody2D ItemInstance;
                 itemChance(2);
-
-                if (DestroyObjectsBottomBorder.ballCount2 > 1 && (i == 4 || i == 6))
-                {
-                    itemChance(2);
-                }
 
                 if (BrickPhysikScript.brickZähler > 5)
                 {

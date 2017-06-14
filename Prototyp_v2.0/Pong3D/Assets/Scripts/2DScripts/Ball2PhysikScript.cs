@@ -15,6 +15,8 @@ public class Ball2PhysikScript : MonoBehaviour
     public Image circleShield;
     public Image circleGlue;
     public Image circleControlChange;
+    public GameObject Fireball;
+    public GameObject Firepaddle;
 
 	void Start () 
 	{
@@ -40,6 +42,36 @@ public class Ball2PhysikScript : MonoBehaviour
         }
 
         scoreText.text = ((int)Paddle2Script.player2Score).ToString();
+
+
+        if (Paddle2Script.powerballCollected == true)
+        {
+            Firepaddle.SetActive(true);
+           
+        }
+
+        if (Paddle2Script.powerballstatus == true)
+        {
+            Firepaddle.SetActive(false);
+            Fireball.SetActive(true);
+
+            if (transform.position.x > 5.9 || transform.position.x < -5.9)
+            {
+                transform.GetComponent<Collider2D>().isTrigger = false;
+            }
+            else
+            {
+                transform.GetComponent<Collider2D>().isTrigger = true;
+            }
+
+            if (transform.position.y < -4.5)
+            {
+                transform.GetComponent<Collider2D>().isTrigger = false;
+                Fireball.SetActive(false);
+
+                Paddle2Script.powerballstatus = false;
+            }
+        }
 
         if (startposition == true)
         {
@@ -101,23 +133,27 @@ public class Ball2PhysikScript : MonoBehaviour
         Paddle2Script.shieldstatus = false;
         Paddle2Script.gluestatus = false;
         Paddle2Script.glued = false;
+        Paddle2Script.powerballstatus = false;
+        Paddle2Script.powerballCollected = false;
         circleControlChange.fillAmount = 0;
         circleGlue.fillAmount = 0;
         circleShield.fillAmount = 0;
+        Fireball.SetActive(false);
+        Firepaddle.SetActive(false);
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
     {
 
-         if(collision.transform.tag =="SideTag" &&  rb.velocity.y > -1)
+       /*  if(collision.transform.tag =="SideTag" &&  rb.velocity.y > -1)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 0.5f);
             Debug.Log("Velobug");
         }
-
-        if(collision.transform.tag =="SideTag" && rb.velocity.y < 1 )
+*/
+        if(collision.transform.tag =="SideTag")// && rb.velocity.y < 1 )
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.5f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.25f);
             Debug.Log("Velobug");
         }
 

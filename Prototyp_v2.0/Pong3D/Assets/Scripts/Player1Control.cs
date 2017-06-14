@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Player1Control : MonoBehaviour
 {
-    public static GameObject playerPaddle;
+    /*public static GameObject playerPaddle;
     public GameObject bottomBorder;
     public Rigidbody2D rbball;
     public Rigidbody2D rbball2;
@@ -40,7 +40,7 @@ public class Player1Control : MonoBehaviour
     void Start(){}
     void Update()
     {
-      /*  leftLimit = bottomBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);
+        leftLimit = bottomBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);
         rightLimit = bottomBorder.GetComponent<Renderer>().bounds.max.x - (transform.localScale.x / 2);
 
         if (Input.GetKey("5"))
@@ -255,5 +255,5 @@ public class Player1Control : MonoBehaviour
             glued = true;
         }
         #endregion
-    */}
+    }*/
 }

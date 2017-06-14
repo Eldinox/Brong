@@ -5,26 +5,28 @@ using UnityEngine.UI;
 
 public class BallPhysikScript : MonoBehaviour 
 {
-	public Rigidbody2D rb;
+    public Rigidbody2D rb;
     public int ballSpeed = 4;
     static public bool startposition = true;
     public GameObject playerPaddle;
     public GameObject playerPaddle2;
+    public GameObject Fireball;
+    public GameObject Firepaddle;
     public float gameTimer = 0;
     public Text scoreText;
     public Image circleShield;
     public Image circleGlue;
     public Image circleControlChange;
 
-	void Start () 
-	{
-		rb = GetComponent<Rigidbody2D>();
+    void Start () 
+    {
+        rb = GetComponent<Rigidbody2D>();
         startposition = true;
-	}
-	
-	void Update () 
-	{
-		gameTimer += Time.deltaTime;
+    }
+    
+    void Update () 
+    {
+        gameTimer += Time.deltaTime;
         if (gameTimer > 30)
         {
             if (ballSpeed < 6)
@@ -36,10 +38,39 @@ public class BallPhysikScript : MonoBehaviour
 
         if(transform.position.x > 15 && transform.position.y > 10)
         {
-        	Serve();
+            Serve();
         }
 
         scoreText.text = ((int)Paddle1Script.player1Score).ToString();
+
+        if (Paddle1Script.powerballCollected == true)
+        {
+            Firepaddle.SetActive(true);
+           
+        }
+
+        if (Paddle1Script.powerballstatus == true)
+        {
+            Firepaddle.SetActive(false);
+            Fireball.SetActive(true);
+
+            if (transform.position.x > 5.9 || transform.position.x < -5.9)
+            {
+                transform.GetComponent<Collider2D>().isTrigger = false;
+            }
+            else
+            {
+                transform.GetComponent<Collider2D>().isTrigger = true;
+            }
+
+            if (transform.position.y > 4.5)
+            {
+                transform.GetComponent<Collider2D>().isTrigger = false;
+                Fireball.SetActive(false);
+
+                Paddle1Script.powerballstatus = false;
+            }
+        }
 
         if (startposition == true)
         {
@@ -72,9 +103,9 @@ public class BallPhysikScript : MonoBehaviour
         {
             rb.velocity = ballSpeed * (rb.velocity.normalized);
         }
-	}
+    }
 
-	public void Serve()
+    public void Serve()
     {
         startposition = true;
     }
@@ -101,26 +132,17 @@ public class BallPhysikScript : MonoBehaviour
        
         Paddle1Script.gluestatus = false;
         Paddle1Script.glued = false;
+        Paddle1Script.powerballstatus = false;
+        Paddle1Script.powerballCollected = false;
         circleControlChange.fillAmount = 0;
         circleGlue.fillAmount = 0;
         circleShield.fillAmount = 0;
+        Fireball.SetActive(false);
+        Firepaddle.SetActive(false);
     }
 
-	void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag =="SideTag" && rb.velocity.y < 1 )
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.5f);
-            Debug.Log("Velobug");
-        }
-
-        if(collision.transform.tag =="SideTag" &&  rb.velocity.y > -1)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 0.5f);
-            Debug.Log("Velobug");
-        }
-
-
         if(collision.gameObject.name.Contains("Brick"))
         {
             GetComponent<AudioSource>().Play();
@@ -128,6 +150,21 @@ public class BallPhysikScript : MonoBehaviour
 
         foreach (ContactPoint2D contact in collision.contacts)
         {
+
+
+       /*      if(collision.transform.tag =="SideTag" &&  rb.velocity.y > -0.5f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 5f);
+            Debug.Log("Velobug");
+        }
+*/
+        if(collision.transform.tag =="SideTag")// && rb.velocity.y < 0.5f )
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 0.25f);
+            Debug.Log("Velobug");
+        }
+
+        Debug.Log(rb.velocity.y);
             if(collision.transform.tag == "Player1Paddle")
             {
                 float winkel = contact.point.x - playerPaddle.transform.position.x;

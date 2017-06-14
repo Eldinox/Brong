@@ -10,10 +10,10 @@ public class LevelSelectionStart : MonoBehaviour
 
 		
 	}
-
+/*
 	public void onClick()
 	{
 		GetComponent<AudioSource>().Play();
 		Application.LoadLevel("LevelSelection");
-	}
+	}*/
 }

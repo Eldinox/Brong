@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StrongBlockPhysScript : MonoBehaviour {
 
-    public Rigidbody2D[] RbitemPrefab;
+    /*public Rigidbody2D[] RbitemPrefab;
     public int blockHealth = 3;
     private int chanceItem;
     private int i;
@@ -155,5 +155,5 @@ public class StrongBlockPhysScript : MonoBehaviour {
         {
             rend.sharedMaterial = texture[1];
         }
-    }
+    }*/
 }

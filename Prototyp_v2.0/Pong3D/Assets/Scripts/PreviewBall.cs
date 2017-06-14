@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PreviewBall : MonoBehaviour 
 {
-	public Rigidbody rb;
+	/*public Rigidbody rb;
 	public GameObject playerPaddle;
     public GameObject playerPaddle2;
 
@@ -39,5 +39,5 @@ public class PreviewBall : MonoBehaviour
                 rb.velocity = new Vector3(winkelX2 , rb.velocity.y, 0);
             }
         }
-    }
+    }*/
 }

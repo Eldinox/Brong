@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DestroyObjectsBottomBorder : MonoBehaviour
 {
-    public BallPhysikScript bs;
+    /*public BallPhysikScript bs;
     public Ball2PhysikScript bs2;
     public static int ballCount1 = 1;
     public static int ballCount2 = 1;
@@ -194,5 +194,5 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }
