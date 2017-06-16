@@ -34,6 +34,8 @@ public class EndGame : MonoBehaviour
     public GameObject Level2;
     public GameObject Level3;
     public int Levelcount = 0;
+    public bool noBM = false;
+    public float betweenLevelTimer = 0;
 
 
     // Use this for initialization
@@ -43,7 +45,7 @@ public class EndGame : MonoBehaviour
     {
         lifeBorder1 = player1Life * 0.19999f;
         lifeBorder2 = player2Life * 0.19999f;
-        Debug.Log("countLevel" +Levelcount);
+        //Debug.Log("countLevel" +Levelcount);
        
         if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.U)) && gameEnded == true)
         { 
@@ -51,8 +53,9 @@ public class EndGame : MonoBehaviour
             BrickPhysikScript.brickZähler = 112;
             BrickPhysikScript.brickZähler = 187;*/
             endgameStarted = false;
+            noBM = false;
             /*Application.LoadLevel("HowTo");*/
-            SceneManager.LoadScene("HowTo");
+            SceneManager.LoadScene("Credits");
         }
 
         if (MatchBallScript.P1Torkassiert == true )
@@ -100,36 +103,41 @@ public class EndGame : MonoBehaviour
         if(BrickPhysikScript.brickZähler == 0 && endgameStarted == false)
         {
             //GameObject.FindGameObjectWithTag("Level2").SetActive(true);
-            
+         Level1.SetActive(false); 
+         Level2.SetActive(false); 
+         Level3.SetActive(false);
+         BallPhysikScript.startposition = true;
+         Ball2PhysikScript.startposition = true;
             //BrickPhysikScript.brickZähler = 10;
-            Levelcount++;
-            if (Levelcount == 1)
+            betweenLevelTimer += Time.deltaTime;
+
+            if (Levelcount == 0 && betweenLevelTimer >= 2)
             {
-                Level1.SetActive(false);
-                Level2.SetActive(true);
-                BallPhysikScript.startposition = true;
-                Ball2PhysikScript.startposition = true;
-
-
+                
+                                          
+                    Debug.Log("Level2 Start");
+                    Level2.SetActive(true);
+                    
+                    betweenLevelTimer = 0;
+                    Levelcount++;
+                
+                
             }
-            if (Levelcount == 2)
+            if (Levelcount == 1 && betweenLevelTimer >= 2 )
             {
-                BallPhysikScript.startposition = true;
-                Ball2PhysikScript.startposition = true;
-                Level2.SetActive(false);
+                Debug.Log("Level3 Start");
+                
+                
                 Level3.SetActive(true);
+                betweenLevelTimer = 0;
+                Levelcount++;
             }
-            if (Levelcount == 3)
-            {
-                BallPhysikScript.startposition = true;
-                Ball2PhysikScript.startposition = true;
-                Level3.SetActive(false);
-                endgameStarted = true;
-            }
+            
         }
 
-        if (Levelcount == 3)
-        {
+        if (Levelcount == 2 && betweenLevelTimer >= 2)
+        {  
+            
             startEndgame();
             endgameStarted = true;
             Debug.Log("lifes1 =" + player1Life);
@@ -150,6 +158,7 @@ public class EndGame : MonoBehaviour
                     Score1.SetActive(false);
                     Score2.SetActive(false);
                     gameEnded = true;
+                    noBM = true;
                 }
 
                 if (player2Life < 1)
@@ -163,6 +172,7 @@ public class EndGame : MonoBehaviour
                     Score1.SetActive(false);
                     Score2.SetActive(false);
                     gameEnded = true;
+                    noBM = true;
                 }
             }
 
@@ -175,7 +185,7 @@ public class EndGame : MonoBehaviour
                     Paddle1Script.player1Score -= 50;
                 }
 
-                if (Healthbar1.fillAmount < lifeBorder1)
+                if ((Healthbar1.fillAmount < lifeBorder1)&& gameEnded == false)
                 {
                     Healthbar1.fillAmount += 0.005f;
                 }
@@ -185,7 +195,7 @@ public class EndGame : MonoBehaviour
                     Paddle2Script.player2Score -= 50;
                 }
 
-                if (Healthbar2.fillAmount < lifeBorder2)
+                if ((Healthbar2.fillAmount < lifeBorder2)&& gameEnded == false)
                 {
                     Healthbar2.fillAmount += 0.005f;
                 }
@@ -234,7 +244,7 @@ public class EndGame : MonoBehaviour
         bs.ResetPowerups();
         bs2.ResetPowerups2();
 
-        if (battlemodeTimer > 2 && battlemodeTimer < 4)
+        if ((battlemodeTimer > 2 && battlemodeTimer < 4) && noBM == false)
         {
             IconTime = true;
         }

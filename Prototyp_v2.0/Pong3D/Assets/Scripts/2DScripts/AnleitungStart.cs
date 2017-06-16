@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AnleitungStart : MonoBehaviour
 {
@@ -11,12 +12,12 @@ public class AnleitungStart : MonoBehaviour
     public void onClick()
     {
         GetComponent<AudioSource>().Play();
-        Application.LoadLevel("HowTo");
+        SceneManager.LoadScene("Test");
     }
 
     public void BackToMenu()
     {
         GetComponent<AudioSource>().Play();
-        Application.LoadLevel("Test");
+        SceneManager.LoadScene("Menu");
     }
 }
