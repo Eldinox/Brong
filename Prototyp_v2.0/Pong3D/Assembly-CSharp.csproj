@@ -46,8 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\NewBehaviourScript.cs" />
-     <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\2DScripts\AnleitungStart.cs" />
      <Compile Include="Assets\Scripts\2DScripts\Ball2PhysikScript.cs" />
      <Compile Include="Assets\Scripts\2DScripts\BallPhysikScript.cs" />
@@ -56,30 +54,13 @@
      <Compile Include="Assets\Scripts\2DScripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\2DScripts\FPSCounterScript.cs" />
      <Compile Include="Assets\Scripts\2DScripts\Item2DSpriteScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\ItemPositionScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\MatchBallScript.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\MoveBlock.cs" />
      <Compile Include="Assets\Scripts\2DScripts\Paddle1Script.cs" />
      <Compile Include="Assets\Scripts\2DScripts\Paddle2Script.cs" />
      <Compile Include="Assets\Scripts\2DScripts\PowerballAnimation.cs" />
-     <Compile Include="Assets\Scripts\BallsScript.cs" />
-     <Compile Include="Assets\Scripts\BallsScript2.cs" />
-     <Compile Include="Assets\Scripts\BigPaddleItemScript.cs" />
-     <Compile Include="Assets\Scripts\BlockPhys.cs" />
-     <Compile Include="Assets\Scripts\DestroyObjectsBottomBorder.cs" />
-     <Compile Include="Assets\Scripts\ItemPositionScript.cs" />
-     <Compile Include="Assets\Scripts\ItemPrefabScript.cs" />
-     <Compile Include="Assets\Scripts\Level1Start.cs" />
-     <Compile Include="Assets\Scripts\Level2Start.cs" />
-     <Compile Include="Assets\Scripts\Level3Start.cs" />
-     <Compile Include="Assets\Scripts\LevelSelectionStart.cs" />
-     <Compile Include="Assets\Scripts\MatchBallScript.cs" />
-     <Compile Include="Assets\Scripts\MoveBlock.cs" />
-     <Compile Include="Assets\Scripts\Player1Control.cs" />
-     <Compile Include="Assets\Scripts\Player2Control.cs" />
-     <Compile Include="Assets\Scripts\PreviewBall.cs" />
-     <Compile Include="Assets\Scripts\PreviewPlayer.cs" />
-     <Compile Include="Assets\Scripts\PreviewPlayer2.cs" />
-     <Compile Include="Assets\Scripts\ShieldScript.cs" />
-     <Compile Include="Assets\Scripts\StrongBlockPhys.cs" />
-     <Compile Include="Assets\Scripts\StrongBrickPhysik.cs" />
+     <Compile Include="Assets\Scripts\2DScripts\StrongBrickPhysik.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
