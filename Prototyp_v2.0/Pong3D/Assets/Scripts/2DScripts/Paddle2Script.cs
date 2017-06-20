@@ -139,7 +139,7 @@ public class Paddle2Script : MonoBehaviour
         {
             if (this.gameObject.transform.localScale.x <= 0.34f)
             {
-                //GetComponent<AudioSource>().Play();
+                GetComponent<AudioSource>().Play();
                 
                 paddleSize *= 1.5f;
                 this.gameObject.transform.localScale += new Vector3(0.1f, 0, 0);
@@ -150,7 +150,7 @@ public class Paddle2Script : MonoBehaviour
         {
             if (this.gameObject.transform.localScale.x >= 0.14f)
             {
-                //GetComponent<AudioSource>().Play();
+                GetComponent<AudioSource>().Play();
 
                 paddleSize /= 1.5f;
                 this.gameObject.transform.localScale -= new Vector3(0.1f, 0, 0);
@@ -159,13 +159,13 @@ public class Paddle2Script : MonoBehaviour
         //ControlChange
         if (collision.transform.tag == "ControlChange")
         {
-            //GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().Play();
             Paddle1Script.controlChange = true;
         }
         //GlueItem
         if (collision.transform.tag == "glueItem")
         {
-            //GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().Play();
             speedItemTimerGlue = 12f;
             glueTime = 12f;
             gluestatus = true;
@@ -182,7 +182,7 @@ public class Paddle2Script : MonoBehaviour
         //Shield
         if (collision.transform.tag == "shieldItem")
         {
-            //GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().Play();
             speedItemTimerShield = 8f;
             shieldTime = 8f;
             shieldstatus = true;
@@ -191,7 +191,7 @@ public class Paddle2Script : MonoBehaviour
         //Powerball
         if (collision.transform.tag == "powerballItem")
         {
-            //GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().Play();
             powerballCollected = true;
         }
 

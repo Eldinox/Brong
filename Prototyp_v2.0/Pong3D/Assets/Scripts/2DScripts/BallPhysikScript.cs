@@ -90,7 +90,7 @@ public class BallPhysikScript : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, 300));
             startposition = false;
         }  
-
+            //
         if(Input.GetKey(KeyCode.W) && (startposition || Paddle1Script.glued))
         {
             rb.velocity = new Vector2(0,0);
@@ -143,7 +143,7 @@ public class BallPhysikScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name.Contains("Brick"))
+        if(collision.gameObject.name.Contains("brick"))
         {
             GetComponent<AudioSource>().Play();
         }

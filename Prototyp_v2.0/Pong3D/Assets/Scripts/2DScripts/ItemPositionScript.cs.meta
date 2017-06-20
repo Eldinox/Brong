@@ -1,10 +1,16 @@
 fileFormatVersion: 2
 guid: ceb9acb795499b04e8775e74d645b8e6
-timeCreated: 1480427249
+timeCreated: 1497979057
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shield: {instanceID: 0}
+  - glue: {instanceID: 0}
+  - controlchange: {instanceID: 0}
+  - shield2: {instanceID: 0}
+  - glue2: {instanceID: 0}
+  - controlchange2: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -10,41 +10,36 @@ public class BorderDestroyObjectsScript : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.transform.tag == "Matchball" && col.gameObject.transform.position.y > 4)
-
         {
-            Debug.Log("matchballhere1");
             EndGame.player2Life -= 1;
+            GetComponent<AudioSource>().Play();
         }
 
         if (col.gameObject.transform.tag == "Matchball" && col.gameObject.transform.position.y < 4)
         {
-            Debug.Log("matchballhere2");
             EndGame.player1Life -= 1;
+            GetComponent<AudioSource>().Play();
         }
 
         if (col.gameObject.transform.tag == "ball")
         {
-           
             if (col.gameObject.transform.position.y < 0)  
             {
                 bs.Standby(); 
                 bs.ResetPowerups();
-                Debug.Log("Ballweg");
+                GetComponent<AudioSource>().Play();
             }
             else if (col.gameObject.transform.position.y > 0)
             {
                 if(Paddle2Script.player2Score >= 500)
                 {
-                    Debug.Log("Punkte");
-                	Paddle2Script.player2Score -= 500;
+                    Paddle2Script.player2Score -= 500;
                 	Paddle1Script.player1Score += 500;
                 }
                 if(Paddle2Script.player2Score < 500)
                 {
-                    Debug.Log("Punkte");
                     Paddle1Script.player1Score += Paddle2Script.player2Score;
-                    Paddle2Script.player2Score -= Paddle2Script.player2Score;
-                    
+                    Paddle2Script.player2Score -= Paddle2Script.player2Score;   
                 }
                 bs.Serve();
             }
@@ -55,13 +50,11 @@ public class BorderDestroyObjectsScript : MonoBehaviour
             {
                 if(Paddle1Script.player1Score >= 500)
                 {
-                    Debug.Log("Punkte");
-                	Paddle1Script.player1Score -= 500;
+                    Paddle1Script.player1Score -= 500;
                 	Paddle2Script.player2Score += 500;
                 } 
                 if(Paddle1Script.player1Score < 500)
                 {
-                    Debug.Log("Punkte");
                     Paddle2Script.player2Score += Paddle1Script.player1Score;
                     Paddle1Script.player1Score -= Paddle1Script.player1Score;
                     
@@ -72,6 +65,7 @@ public class BorderDestroyObjectsScript : MonoBehaviour
             {
                 bs2.Standby();
                 bs2.ResetPowerups2();
+                GetComponent<AudioSource>().Play();
             }
         }
 /*

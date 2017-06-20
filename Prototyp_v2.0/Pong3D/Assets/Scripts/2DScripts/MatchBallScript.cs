@@ -28,14 +28,14 @@ public class MatchBallScript : MonoBehaviour
         {
             transform.position = new Vector2(playerPaddle.transform.position.x, -4.45f);
 
-            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
             {
                 rb.velocity = new Vector2(0, 0);
                 GetComponent<Rigidbody2D>().AddForce(new Vector2 (600, 300));
                 startposition = false;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
             {
                 rb.velocity = new Vector2(0, 0);
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, 300));
@@ -57,14 +57,14 @@ public class MatchBallScript : MonoBehaviour
             if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U))
             {
                 rb.velocity = new Vector2(0, 0);
-                GetComponent<Rigidbody2D>().AddForce(new Vector2 (600, -300));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2 (-600, -300));
                 startposition = false;
             }
 
             if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U))
             {
                 rb.velocity = new Vector3(0, 0, 0);
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-600, -300));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(600, -300));
                 startposition = false;
             }
 

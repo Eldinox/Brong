@@ -157,7 +157,7 @@ public class Ball2PhysikScript : MonoBehaviour
             Debug.Log("Velobug");
         }
 
-        if(collision.gameObject.name.Contains("Brick"))
+        if(collision.gameObject.name.Contains("brick"))
         {
             GetComponent<AudioSource>().Play();
         }

@@ -179,8 +179,11 @@ public class EndGame : MonoBehaviour
             if (LifesCount == true )
             {
                 scoreTimer += Time.deltaTime;
-
-                if (Paddle1Script.player1Score > 0)
+                if(gameEnded){
+                    Paddle1Script.player1Score = 0;
+                    Paddle2Script.player2Score = 0;
+                }
+                if (Paddle1Script.player1Score > 0 )
                 {
                     Paddle1Script.player1Score -= 50;
                 }
@@ -190,7 +193,7 @@ public class EndGame : MonoBehaviour
                     Healthbar1.fillAmount += 0.005f;
                 }
 
-                if (Paddle2Script.player2Score > 0)
+                if (Paddle2Script.player2Score > 0 )
                 {
                     Paddle2Script.player2Score -= 50;
                 }
